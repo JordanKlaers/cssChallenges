@@ -2,9 +2,10 @@
 import Vue from 'vue';
 import App from './App';
 import Vuex from 'vuex'
+import Animations from '_mixins_/Animations';
 
 Vue.use(Vuex)
-
+Vue.mixin(Animations)
 const store = new Vuex.Store({
 	state: {
 		testValue: null

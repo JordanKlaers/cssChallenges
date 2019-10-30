@@ -20,7 +20,12 @@ export default {
 	},
 	computed: {
 	},
+	mounted() {
+	},
 	methods: {
 	}
 };
 </script>
+<style lang='scss' type="text/scss">
+@import '~_scss_/app.scss';
+</style>

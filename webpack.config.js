@@ -20,6 +20,7 @@ module.exports = {
 		alias: {
 			'src': resolve('src'),
 			'_scss_': resolve('./src/assets/scss'),
+			'_mixins_': resolve('./src/mixins'),
 			'_images_': resolve('./src/assets/image/')
 		}
 	},
