@@ -37,7 +37,7 @@ export default {
 				}
 			}
 			if (this.dir == 'forwards') {
-				if (event.animationName == 'shrink')  {
+				if (event.animationName == 'shrink') {
 					this.$refs['button'].classList.add('ring-fill');
 				} else if (event.animationName == 'ring-fill') {
 					this.$refs['button'].classList.add('fill-white');

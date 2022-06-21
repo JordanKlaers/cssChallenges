@@ -1,58 +1,32 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
-const webpack = require('webpack');
-
-function resolve (dir) {
-	return path.join(__dirname, './', dir)
-}
 
 module.exports = {
 	entry: {
-		app: './src/main.js',
+		main: './src/index.js',
 	},
 	devtool: 'inline-source-map',
 	devServer: {
-		port: 9000,
+		port: 9001,
 	},
 	resolve: {
 		extensions: ['.js', '.vue', '.json', '.scss'],
 		alias: {
-			'src': resolve('src'),
-			'_scss_': resolve('./src/assets/scss'),
-			'_mixins_': resolve('./src/mixins'),
-			'_images_': resolve('./src/assets/image/')
 		}
 	},
-	// optimization: {
-	// 	runtimeChunk: 'single',
-	// 	splitChunks: {
-	// 		chunks: 'all',
-	// 		cacheGroups: {
-	// 			// lodash: {
-	// 			// 	test: /[\\/]node_modules[\\/](lodash)[\\/]/,
-	// 			// 	name: 'lodash',
-	// 			// 	chunks: 'all',
-	// 			// 	priority: 2
-	// 			// },
-	// 			node: {
-	// 				test: /[\\/]node_modules[\\/]/,
-	// 				name: 'node',
-	// 				chunks: 'all'
-	// 			}
-	// 		}
-	// 	}
-	// },
 	module: {
 		rules: [
-			{
-				test: /\.scss$/,
-				use: [
-					"style-loader", // creates style nodes from JS strings
-					"css-loader", // translates CSS into CommonJS
-					"sass-loader" // compiles Sass to CSS
-				]
-			},
+			// {
+			// 	test: /\.s[ac]ss$/i,
+			// 	use: [
+			// 		// Creates `style` nodes from JS strings
+			// 		"style-loader",
+			// 		// Translates CSS into CommonJS
+			// 		"css-loader",
+			// 		// Compiles Sass to CSS
+			// 		"sass-loader",
+			// 	],
+			// },
 			{
 				test: /\.vue$/,
 				loader: 'vue-loader'
@@ -68,9 +42,7 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			title: 'Output Management',
 			template: 'src/index.html'
-		}),
-		new HtmlWebpackHarddiskPlugin(),
-		new webpack.optimize.ModuleConcatenationPlugin()
+		})
 	],
 	output: {
 		filename: '[name].bundle.js',
